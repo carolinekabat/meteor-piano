@@ -7,7 +7,8 @@ Template.piano.events({
     console.log("Inserting sound "+$(event.target).data("tone"));
 
     Tones.insert({
-      sound: $(event.target).data("tone")
+      sound: $(event.target).data("tone"),
+      unixtime: +new Date
     });
   }
 });
