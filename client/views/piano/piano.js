@@ -1,13 +1,15 @@
-Template.main.onCreated(function() {
-  this.subscribe('tone');
+Template.piano.onCreated(function() {
+  this.subscribe('tones');
 });
 
-Template.main.events({
+Template.piano.events({
   'click .key': function(event, instance) {
-    event.preventDefault();
-    console.log("Pressed key!");
+    console.log("Pressed key "+$(event.target).data("tone")+"!");
+
+    // play sound
+
     Tones.insert({
-      sound: tone
+      sound: $(event.target).data("tone")
     });
   }
 });
